@@ -1,9 +1,17 @@
-<h2>CPAN Hubble search for [= $query =]</h2>
+<div class=t4> 
+<small> 
+Results <b>1</b> - <b>[= scalar @$res =]</b> of
+<b>[= scalar @$res =]</b> Found</small></div> 
 
 <?pl for my $r (@$res) { ?>
-<p>
-<a href="[= $r->{link} =]"><b>[= $r->{name} =]</b></a><br>
-[= $r->{desc} =]<br>
-<font color="green">[= $r->{date} =]</font> - <a href="[= $r->{author_link} =]">author</a>
-</p>
+<p><h2 class=sr><a href="[= $r->{link} =]"><b>[= $r->{name} =]</b></a>
+    <?pl if ($r->{gh}) { ?>
+        <small>(<a href="[= $r->{gh}->{link} =]">on github</a>)</small>
+    <?pl } elsif ($r->{ongithub}) { ?>
+        <small>(on github)</small>
+    <?pl } ?>
+    </h2> 
+<small>[= $r->{desc} =]</small><br/> 
+<small><span class=date>[= $r->{date} =]</span> - <a href="[= $r->{author_link} =]">[= $r->{author} =]</a> 
+</small> 
 <?pl } ?>

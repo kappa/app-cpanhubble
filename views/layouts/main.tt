@@ -1,17 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
-<head>
-<title>cpanhubble</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<h1>cpanhubble</h1>
-<div id="content">
-<p>[== $content =]</p>
-</div>
-<div id="footer">
-Powered by <a href="http://dancer.sukria.net">Dancer</a> 
-</div>
-</body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html> 
+ <head> 
+  <link rel="stylesheet" href="http://st.pimg.net/tucs/style.css" type="text/css" /> 
+  <title>The CPAN Hubble Site - XXX</title> 
+ </head> 
+ <body id="cpansearch"> 
+<center><div class="logo"><a href="/"><img src="http://st.pimg.net/tucs/img/cpan_banner.png" alt="CPAN"></a></div></center> 
+<div class="menubar"> 
+ <a href="/">Home</a> 
+&middot; <a href="http://search.cpan.org/author/">Authors</a> 
+&middot; <a href="http://search.cpan.org/recent">Recent</a> 
+&middot; <a href="http://log.perl.org/cpansearch/">XXX News</a> 
+&middot; <a href="http://search.cpan.org/mirror">Mirrors</a> 
+&middot; <a href="http://search.cpan.org/faq.html">FAQ</a> 
+&middot; <a href="http://search.cpan.org/feedback">XXX Feedback</a> 
+</div> 
+<form method="get" action="/search" name="f" class="searchbox"> 
+<input type="text" name="q" value="[= $query || '' =]" size="35"> 
+<br><input type="submit" value="CPAN Search"> 
+</form> 
+
+[== $content =]
+
+<div class="footer"><div class="cpanstats">62607 Uploads, 19972 Distributions
+80853 Modules, 8091 Uploaders
+</div> 
+</div> 
+ </body> 
+</html> 
