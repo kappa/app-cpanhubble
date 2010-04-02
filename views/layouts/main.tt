@@ -2,29 +2,28 @@
 <html> 
  <head> 
   <link rel="stylesheet" href="http://st.pimg.net/tucs/style.css" type="text/css" /> 
-  <title>The CPAN Hubble Site - XXX</title> 
+  <title>The CPAN Hubble Site<?pl if ($params->{q}) { ?> - [= $params->{q} =]<?pl } ?></title> 
  </head> 
  <body id="cpansearch"> 
-<center><div class="logo"><a href="/"><img src="http://st.pimg.net/tucs/img/cpan_banner.png" alt="CPAN"></a></div></center> 
-<div class="menubar"> 
+<center><div style="margin-top: 0.5em;" class="logo"><a href="/"><font size=+3>CPAN Hubble</font></a><br>search CPAN &amp; Github</div></center> 
+<div class="menubar"><small>&nbsp;Links to search.cpan.org:</small>
  <a href="/">Home</a> 
 &middot; <a href="http://search.cpan.org/author/">Authors</a> 
 &middot; <a href="http://search.cpan.org/recent">Recent</a> 
-&middot; <a href="http://log.perl.org/cpansearch/">XXX News</a> 
+&middot; <a href="http://log.perl.org/cpansearch/">News</a> 
 &middot; <a href="http://search.cpan.org/mirror">Mirrors</a> 
 &middot; <a href="http://search.cpan.org/faq.html">FAQ</a> 
-&middot; <a href="http://search.cpan.org/feedback">XXX Feedback</a> 
+&middot; <a href="http://search.cpan.org/feedback">Feedback</a> 
 </div> 
 <form method="get" action="/search" name="f" class="searchbox"> 
-<input type="text" name="q" value="[= $query || '' =]" size="35"> 
-<br><input type="submit" value="CPAN Search"> 
+<input type="text" name="q" value="[= $params->{q} || '' =]" size="35"> 
+<br><input type="submit" value="CPAN Hubble Search"> 
 </form> 
 
 [== $content =]
 
-<div class="footer"><div class="cpanstats">62607 Uploads, 19972 Distributions
-80853 Modules, 8091 Uploaders
+<div class="footer">
+Powered by <a href="http://search.cpan.org">search.cpan.org</a>, <a href="http://github.com">github.com</a>. <a href="#XXX">Opensource</a> software by <a href="http://search.cpan.org/~kappa/">Alex Kapranoff</a>. <a href="#XXX">Feedback</a>.
 </div> 
-</div> 
- </body> 
+</body> 
 </html> 

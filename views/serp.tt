@@ -1,7 +1,7 @@
 <div class=t4> 
 <small> 
 Results <b>1</b> - <b>[= scalar @$res =]</b> of
-<b>[= scalar @$res =]</b> Found</small></div> 
+<b>[= scalar @$res =]</b> found<?pl unless ($cache_miss) { ?> (from cache)<?pl } ?></small></div> 
 
 <?pl for my $r (@$res) { ?>
 <p><h2 class=sr><a href="[= $r->{link} =]"><b>[= $r->{name} =]</b></a>
@@ -11,7 +11,7 @@ Results <b>1</b> - <b>[= scalar @$res =]</b> of
         <small>(on github)</small>
     <?pl } ?>
     </h2> 
-<small>[= $r->{desc} =]</small><br/> 
+<?pl if ($r->{desc}) { ?><small>[= $r->{desc} =]</small><br/><?pl } ?>
 <small><span class=date>[= $r->{date} =]</span> - <a href="[= $r->{author_link} =]">[= $r->{author} =]</a> 
 </small> 
 <?pl } ?>
