@@ -1,3 +1,4 @@
 layout: "main"
 logger: "file"
 template: "tenjin"
+charset: "utf-8"
