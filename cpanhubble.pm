@@ -10,7 +10,7 @@ use CHI;
 my $cache = CHI->new(driver => 'FastMmap', root_dir   => '/tmp/hubble-cache', cache_size => '10m');
 
 get '/' => sub {
-    template 'index';   # XXX
+    template 'index';
 };
 
 get '/search' => sub {

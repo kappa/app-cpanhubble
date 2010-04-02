@@ -1,5 +1,14 @@
-<h2>CPAN Hubble</h2>
+<p>This simple web app allows you to search CPAN and Github in one simple
+step. Github search is limited to Perl repositories. Results are merged with a simple algorithm.</p>
 
-<form action="/search">
-<input name="q"><input type="submit" value="Search">
-</form>
+<p>It even uses familiar search.cpan.org design.</p>
+
+<p>Known issues:</p>
+<ol>
+<li>github search is very slow, unreliable and case-sensitive</li>
+<li>github heuristic to determine language is not perfect, some
+repositories are mis-classified</li>
+<li>CPAN XML API does not return distribution version</li>
+</ol>
+
+<p>Don't hesitate to provide feedback: XXX</p>
