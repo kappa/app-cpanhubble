@@ -67,7 +67,7 @@ sub github_search_req($q, $cb) {
                 author_link => "http://github.com/$_->{username}->[0]",
                 date    => $dtf->parse_datetime($_->{pushed}->[0])->strftime('%e %B %Y'),
                 author  => $_->{username}->[0],
-                ongithub=> 1,
+                ghscore => $_->{score}->[0]->{content},
         } } grep {    $_->{name}
                    && $_->{description}
                    && $_->{pushed}
@@ -78,7 +78,7 @@ sub github_search_req($q, $cb) {
     });
 }
 
-sub merge_cpan_and_github($cpan, $gh) {
+sub merge_cpan_and_github($cpan, $gh, $q) {
     my @res;
 
     foreach my $cp (@$cpan) {

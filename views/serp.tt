@@ -7,7 +7,7 @@ Results <b>1</b> - <b>[= scalar @$res =]</b> of
 <p><h2 class=sr><a href="[= $r->{link} =]"><b>[= $r->{name} =]</b></a>
     <?pl if ($r->{gh}) { ?>
         <small>(<a href="[= $r->{gh}->{link} =]">on github</a>)</small>
-    <?pl } elsif ($r->{ongithub}) { ?>
+    <?pl } elsif ($r->{ghscore}) { ?>
         <small>(on github)</small>
     <?pl } ?>
     </h2> 
