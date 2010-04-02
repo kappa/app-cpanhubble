@@ -7,7 +7,7 @@ Github search is limited to Perl repositories.
 
 We are reading data from urls that look like:
  1. http://search.cpan.org/search?query=friendfeed&mode=all&format=xml
- 2. http://github.com/api/v2/xml/repos/search/(FriendFeed%20OR%20description:FriendFeed)%20AND%20language:Perl%20AND%20fork:false
+ 2. http://github.com/api/v2/xml/repos/search/FriendFeed%20AND%20language:Perl%20AND%20fork:false
 
 BUGS:
 Github search is very slow and unreliable.
