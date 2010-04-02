@@ -9,7 +9,7 @@ use Data::Dumper;
 
 use signatures;
 
-my $q = 'FriendFeed';
+my $q = $ARGV[0] || 'FriendFeed';
 
 my ($cpan, $gh);
 
