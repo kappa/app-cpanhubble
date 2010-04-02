@@ -29,6 +29,6 @@ github_search_req($q, sub {
 $cv->recv;
 
 my $res =
-    merge_cpan_and_github($cpan, $gh);
+    merge_cpan_and_github($cpan, $gh, $q);
 
 say Dumper($res);

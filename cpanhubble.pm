@@ -28,7 +28,7 @@ get '/search' => sub {
     $cv->recv;
 
     my $res =
-        merge_cpan_and_github($cpan, $gh);
+        merge_cpan_and_github($cpan, $gh, params->{q});
 
     template 'serp', { res => $res, query => params->{q} };
 };
