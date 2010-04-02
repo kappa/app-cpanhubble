@@ -1,5 +1,5 @@
-<h2>It Works!</h2>
+<h2>CPAN Hubble</h2>
 
-<p>
-I'm in <code>/home/kappa/work/app-cpanhubble/cpanhubble/views/index.tt</code>
-</p>
+<form action="/search">
+<input name="q"><input type="submit" value="Search">
+</form>

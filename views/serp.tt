@@ -1,0 +1,9 @@
+<h2>CPAN Hubble search for [= $query =]</h2>
+
+<?pl for my $r (@$res) { ?>
+<p>
+<a href="[= $r->{link} =]"><b>[= $r->{name} =]</b></a><br>
+[= $r->{desc} =]<br>
+<font color="green">[= $r->{date} =]</font> - <a href="[= $r->{author_link} =]">author</a>
+</p>
+<?pl } ?>
