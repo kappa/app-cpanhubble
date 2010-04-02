@@ -4,33 +4,44 @@ use Dancer;
 use lib './lib';
 use CpanHub;
 use AnyEvent;
+use Encode;
+use CHI;
+
+my $cache = CHI->new(driver => 'FastMmap', root_dir   => '/tmp/hubble-cache', cache_size => '10m');
 
 get '/' => sub {
-    template 'index';
+    template 'index';   # XXX
 };
 
 get '/search' => sub {
     my ($cpan, $gh);
 
-    my $cv = AnyEvent->condvar;
-    $cv->begin;
-    cpan_search_req(params->{q}, sub {
-            $cpan = $_[0];
-            $cv->end;
-        });
+    my $cache_miss;
+    my $res = $cache->get(params->{q});
+    unless ($res) {
+        $cache_miss = 1;
 
-    $cv->begin;
-    github_search_req(params->{q}, sub {
-            $gh = $_[0];
-            $cv->end;
-        });
+        my $cv = AnyEvent->condvar;
+        $cv->begin;
+        cpan_search_req(params->{q}, sub {
+                $cpan = $_[0];
+                $cv->end;
+            });
 
-    $cv->recv;
+        $cv->begin;
+        github_search_req(params->{q}, sub {
+                $gh = $_[0];
+                $cv->end;
+            });
 
-    my $res =
-        merge_cpan_and_github($cpan, $gh, params->{q});
+        $cv->recv;
 
-    template 'serp', { res => $res, query => params->{q} };
+        $res = merge_cpan_and_github($cpan, $gh, params->{q});
+
+        $cache->set(params->{q}, $res, '2 days');
+    }
+
+    template 'serp', { res => $res, cache_miss => $cache_miss };
 };
 
 true;
