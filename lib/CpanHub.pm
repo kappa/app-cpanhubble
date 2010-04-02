@@ -9,6 +9,7 @@ use URI::Escape;
 use AnyEvent::HTTP;
 use XML::Simple qw/:strict/;
 use List::MoreUtils qw/first_index/;
+use DateTime::Format::RFC3339;
 
 use signatures;
 
@@ -39,7 +40,8 @@ sub cpan_search_req($q, $cb) {
                 'link'  => $_->{link}->[0],
                 desc    => $_->{description}->[0],
                 author_link => $_->{author}->[0]->{link}->[0],
-                date    => $_->{released}->[0],
+                date    => do { (my $d = $_->{released}->[0]) =~ s/(\d+)[a-z]{2}/$1/; $d },
+                author  => ($_->{author}->[0]->{link}->[0] =~ /~([^\/]+)/),
         } } grep {    $_->{name}
                    && $_->{link}
                    && $_->{description}
@@ -53,6 +55,8 @@ sub cpan_search_req($q, $cb) {
 
 sub github_search_req($q, $cb) {
     my $query = uri_escape("($q OR description:$q) AND language:Perl AND fork:false");
+    my $dtf = DateTime::Format::RFC3339->new;
+
     _call('http://github.com/api/v2/xml/repos/search/' . $query, { }, sub {
         my $xml = shift;
 
@@ -61,7 +65,9 @@ sub github_search_req($q, $cb) {
                 'link'  => "http://github.com/$_->{username}->[0]/$_->{name}->[0]",
                 desc    => $_->{description}->[0],
                 author_link => "http://github.com/$_->{username}->[0]",
-                date    => $_->{pushed}->[0],
+                date    => $dtf->parse_datetime($_->{pushed}->[0])->strftime('%e %B %Y'),
+                author  => $_->{username}->[0],
+                ongithub=> 1,
         } } grep {    $_->{name}
                    && $_->{description}
                    && $_->{pushed}
