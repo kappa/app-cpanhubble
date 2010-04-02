@@ -1,5 +1,7 @@
 This is a web frontend to CPAN and Github search functions.
 
+It runs on http://perl.worldken.org
+
 It does parallel searches on http://search.cpan.org and Github
 and tries to merge results.
 
