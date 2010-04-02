@@ -12,5 +12,7 @@ We are reading data from urls that look like:
 BUGS:
 Github search is very slow and unreliable.
 
+Github search is case-sensitive.
+
 XML output of search.cpan.org does not contain information about
 version and display name of the author.
