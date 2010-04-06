@@ -23,7 +23,7 @@
 [== $content =]
 
 <div class="footer">
-Powered by <a href="http://search.cpan.org">search.cpan.org</a>, <a href="http://github.com">github.com</a>. <a href="http://github.com/kappa/app-cpanhubble">Opensource</a> software by <a href="http://search.cpan.org/~kappa/">Alex Kapranoff</a>. <a href="#XXX">Feedback</a>.
+Powered by <a href="http://search.cpan.org">search.cpan.org</a>, <a href="http://github.com">github.com</a>. <a href="http://github.com/kappa/app-cpanhubble">Opensource</a> software by <a href="http://search.cpan.org/~kappa/">Alex Kapranoff</a>. <a href="http://use.perl.org/~kappa/journal/40291">Feedback</a>.
 </div> 
 </body> 
 </html> 
