@@ -1,5 +1,5 @@
-<p>This simple web app allows you to search CPAN and Github in one simple
-step. Github search is limited to Perl repositories. Results are merged with a simple algorithm.</p>
+<p>This web application allows you to search CPAN and Github in one simple
+step. Github search is limited to Perl repositories. Results are merged with an algorithm that tries to move good github matches to the top.</p>
 
 <p>It even uses familiar search.cpan.org design.</p>
 
@@ -7,8 +7,8 @@ step. Github search is limited to Perl repositories. Results are merged with a s
 <ol>
 <li>github search is very slow, unreliable and case-sensitive</li>
 <li>github heuristic to determine language is not perfect, some
-repositories are mis-classified</li>
+repositories are misclassified</li>
 <li>CPAN XML API does not return distribution version</li>
 </ol>
 
-<p>Don't hesitate to provide feedback: XXX</p>
+<p>Don't hesitate to provide feedback: <a href="http://use.perl.org/~kappa/journal/40291">use.perl entry</a>.</p>
