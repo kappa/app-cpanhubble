@@ -1,3 +1,4 @@
+appname: "CPAN Hubble"
 layout: "main"
 logger: "file"
 template: "tenjin"
