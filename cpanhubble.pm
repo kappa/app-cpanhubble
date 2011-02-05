@@ -16,6 +16,8 @@ get '/' => sub {
 get '/search' => sub {
     my ($cpan, $gh);
 
+    $SIG{__WARN__} = sub { warning $_[0] };
+
     my $cache_miss;
     my $res = $cache->get(params->{q});
     unless ($res) {
