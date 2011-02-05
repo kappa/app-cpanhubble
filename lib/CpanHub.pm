@@ -68,7 +68,7 @@ sub github_search_req($q, $cb) {
                 'link'  => "http://github.com/$_->{username}->[0]/$_->{name}->[0]",
                 desc    => ref $_->{description}->[0] ? '' : $_->{description}->[0],
                 author_link => "http://github.com/$_->{username}->[0]",
-                date    => $dtf->parse_datetime($_->{pushed}->[0])->strftime('%e %B %Y'),
+                date    => $dtf->parse_datetime($_->{pushed}->[0]->{content})->strftime('%e %B %Y'),
                 author  => $_->{username}->[0],
                 ghscore => $_->{score}->[0]->{content},
         } } grep {
